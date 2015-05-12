@@ -16,6 +16,7 @@ NSString *contentOfBoard = @"";         // string used to display current state 
 NSMutableArray *tictactoeBoard = nil;   // stores the content of the board
 
 
+
 void updateContentOfBoard()
 {
     // start with line break and add 'space' in between each cell for display
@@ -55,8 +56,28 @@ void promptMessageForInput()
     }
 }
 
+BOOL checkVerticalAndHorizontalForThrees()
+{
+    for (int i = 0; i < [tictactoeBoard count]; i += 3) {
+        if (([tictactoeBoard[i] isEqualToString:tictactoeBoard[i+1]] && [tictactoeBoard[i+1] isEqualToString:tictactoeBoard[i+2]]) ||
+            ([tictactoeBoard[i/3] isEqualToString:tictactoeBoard[i/3+3]] && [tictactoeBoard[i/3+3] isEqualToString:tictactoeBoard[i/3+6]]))
+            return TRUE;
+    }
+    return FALSE;
+}
+
+BOOL checkDiagonalForThrees()
+{
+    for (int i = 0; i <= 2; i+=2) {
+        if ([tictactoeBoard[i] isEqualToString:tictactoeBoard[4]] && [tictactoeBoard[4] isEqualToString:tictactoeBoard[4 + (4-i)]])
+            return TRUE;
+    }
+    return FALSE;
+}
+
 void evaluateGame()
 {
+    /*  // Brute Force Method
         // check rows for 3's
     if (([tictactoeBoard[0] isEqualToString:tictactoeBoard[1]] && [tictactoeBoard[1] isEqualToString:tictactoeBoard[2]]) ||
         ([tictactoeBoard[3] isEqualToString:tictactoeBoard[4]] && [tictactoeBoard[4] isEqualToString:tictactoeBoard[5]]) ||
@@ -70,6 +91,10 @@ void evaluateGame()
         // check diagonals for 3's
         ([tictactoeBoard[0] isEqualToString:tictactoeBoard[4]] && [tictactoeBoard[4] isEqualToString:tictactoeBoard[8]]) ||
         ([tictactoeBoard[2] isEqualToString:tictactoeBoard[4]] && [tictactoeBoard[4] isEqualToString:tictactoeBoard[6]]))
+    */
+    
+    // call functions to check for win
+    if (checkVerticalAndHorizontalForThrees() || checkDiagonalForThrees())
     {
         if (playerX) {
             updateContentOfBoard();
