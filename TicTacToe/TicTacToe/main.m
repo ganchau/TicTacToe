@@ -77,22 +77,6 @@ BOOL checkDiagonalForThrees()
 
 void evaluateGame()
 {
-    /*  // Brute Force Method
-        // check rows for 3's
-    if (([tictactoeBoard[0] isEqualToString:tictactoeBoard[1]] && [tictactoeBoard[1] isEqualToString:tictactoeBoard[2]]) ||
-        ([tictactoeBoard[3] isEqualToString:tictactoeBoard[4]] && [tictactoeBoard[4] isEqualToString:tictactoeBoard[5]]) ||
-        ([tictactoeBoard[6] isEqualToString:tictactoeBoard[7]] && [tictactoeBoard[7] isEqualToString:tictactoeBoard[8]]) ||
-        
-        // check columns for 3's
-        ([tictactoeBoard[0] isEqualToString:tictactoeBoard[3]] && [tictactoeBoard[3] isEqualToString:tictactoeBoard[6]]) ||
-        ([tictactoeBoard[1] isEqualToString:tictactoeBoard[4]] && [tictactoeBoard[4] isEqualToString:tictactoeBoard[7]]) ||
-        ([tictactoeBoard[2] isEqualToString:tictactoeBoard[5]] && [tictactoeBoard[5] isEqualToString:tictactoeBoard[8]]) ||
-        
-        // check diagonals for 3's
-        ([tictactoeBoard[0] isEqualToString:tictactoeBoard[4]] && [tictactoeBoard[4] isEqualToString:tictactoeBoard[8]]) ||
-        ([tictactoeBoard[2] isEqualToString:tictactoeBoard[4]] && [tictactoeBoard[4] isEqualToString:tictactoeBoard[6]]))
-    */
-    
     // call functions to check for win
     if (checkVerticalAndHorizontalForThrees() || checkDiagonalForThrees())
     {
