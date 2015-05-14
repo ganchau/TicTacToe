@@ -58,21 +58,23 @@ void promptMessageForInput()
 
 BOOL checkVerticalAndHorizontalForThrees()
 {
+    // check for 3's in vertical and horizontal rows
     for (int i = 0; i < [tictactoeBoard count]; i += 3) {
         if (([tictactoeBoard[i] isEqualToString:tictactoeBoard[i+1]] && [tictactoeBoard[i+1] isEqualToString:tictactoeBoard[i+2]]) ||
             ([tictactoeBoard[i/3] isEqualToString:tictactoeBoard[i/3+3]] && [tictactoeBoard[i/3+3] isEqualToString:tictactoeBoard[i/3+6]]))
-            return TRUE;
+            return YES;
     }
-    return FALSE;
+    return NO;
 }
 
 BOOL checkDiagonalForThrees()
 {
+    // check for 3's in diagonal rows
     for (int i = 0; i <= 2; i+=2) {
         if ([tictactoeBoard[i] isEqualToString:tictactoeBoard[4]] && [tictactoeBoard[4] isEqualToString:tictactoeBoard[4 + (4-i)]])
-            return TRUE;
+            return YES;
     }
-    return FALSE;
+    return NO;
 }
 
 void evaluateGame()
