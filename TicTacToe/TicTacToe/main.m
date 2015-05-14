@@ -158,11 +158,9 @@ int main(int argc, const char * argv[]) {
                 updateContentOfBoard();   // display current board
                 promptMessageForInput();  // ask current player for move
                 evaluateSelection();      // check if move is valid & potential win or draw
-            } while (!gameOver);          // repeat while game is not over
-            
+            } while (!gameOver);          // repeat if game is not over
             replayGame();                 // check if players want to play again
-            
-        } while (continueGame);           // repeat while game is to continue
+        } while (continueGame);           // repeat if players want to play again
     }
     
     return 0;
